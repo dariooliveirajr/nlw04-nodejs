@@ -1,8 +1,13 @@
 {
   "name": "api",
-  "version": "1.0.0",
+  "version": "0.9.0",
   "main": "index.js",
   "license": "MIT",
+  "author": {
+    "name": "Dario de Oliveira Junior",
+    "email": "dariooljr@gmail.com",
+    "url": "https://www.linkedin.com/in/dariooliveirajr/"
+  },
   "scripts": {
     "dev": "ts-node-dev --transpile-only --ignore-watch node_modules src/server.ts",
     "typeorm": "ts-node-dev node_modules/typeorm/cli.js",
@@ -16,6 +21,7 @@
     "nodemailer": "^6.5.0",
     "reflect-metadata": "^0.1.13",
     "sqlite3": "^5.0.2",
+    "swagger-ui-express": "^4.1.6",
     "typeorm": "^0.2.31",
     "uuid": "^8.3.2",
     "yup": "^0.32.9"
