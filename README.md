@@ -46,7 +46,7 @@
 </p>
 <img src="https://i.imgur.com/O6jOE9E.png"/>
 <p align="center">
-  <a href="https://nlw4api.herokuapp.com/coverage/"><img  src="https://img.shields.io/badge/-ACESSAR%20COBERTURA%20DE%20TESTES-7433FF?&style=for-the-badge&logoColor=fff"/></a>
+  <a href="https://nlw4api.herokuapp.com/coverage"><img  src="https://img.shields.io/badge/-ACESSAR%20COBERTURA%20DE%20TESTES-7433FF?&style=for-the-badge&logoColor=fff"/></a>
 </p>
 
 
