@@ -10,7 +10,7 @@ import SendMailService from '../services/SendMailService';
 
 class SendMailController {
     async execute(request: Request, response: Response) {
-        const { email, survey_id } = request.body;
+        const { email, survey_id, test } = request.body;
 
         const usersRepository = getCustomRepository(UsersRepository);
         const surveysRepository = getCustomRepository(SurveysRepository);
@@ -58,12 +58,16 @@ class SendMailController {
 
         await surveysUsersRepository.save(surveyUser);
         
-        //Enviar e-mail para o usuário
-        variables.id = surveyUser.id;
-
-        await SendMailService.execute(email, survey.title, variables, npsPath);
-
-        return response.json(surveyUser);
+        if(test) {
+            return response.json(surveyUser);
+        } else {
+            //Enviar e-mail para o usuário
+            variables.id = surveyUser.id;
+    
+            await SendMailService.execute(email, survey.title, variables, npsPath);
+    
+            return response.json(surveyUser);
+        }
     }
 }
 
