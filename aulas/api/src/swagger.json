@@ -3,7 +3,7 @@
     "info": {
       "title": "NLW4 - NPS API",
       "description": "An API for calculate surveys NPS.",
-      "version": "0.9.0"
+      "version": "1.0.0"
     },
     "host": "localhost:3333",
     "basePath": "",
@@ -103,7 +103,6 @@
           },
         "post": {
           "summary": "Create a new survey.",
-          "description": "Optional extended description in Markdown.",
           "consumes": [
             "application/json"
           ],
@@ -122,10 +121,12 @@
                 ],
                 "properties": {
                   "title": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "Queremos ouvir sua opnião!"
                   },
                   "description": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "De 0 a 10, quanto você recomendaria a Rocketseat?"
                   }
                 }
               }
@@ -133,16 +134,28 @@
           ],
           "responses": {
             "201": {
-              "description": "A user object.",
-              "schema": {
-                "type": "object",
-                "properties": {
-                    "id": "80e757cc-fa6a-4f52-ad0f-c02d20fb1238",
-                    "title": "Queremos ouvir sua opnião!",
-                    "description": "De 0 a 10, quanto você recomendaria a Rocketseat?",
-                    "created_at": "2021-02-28T14:44:48.000Z"
+                "description": "A User object",
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "example": "af4ad5f9-c778-40de-b4a5-68a7678e4b73"
+                    },
+                    "title": {
+                      "type": "string",
+                      "example": "Queremos ouvir sua opnião!"
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "De 0 a 10, quanto você recomendaria a Rocketseat?"
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "example": "2021-02-24T15:06:59.000Z"
+                    }
+                  }
                 }
-              }
             }
           }
         }
@@ -168,10 +181,12 @@
                 ],
                 "properties": {
                   "email": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "giuliano@gmail.com"
                   },
                   "survey_id": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "dfa0dfb8-8e4e-466e-8772-1f394bb7e9ad"
                   }
                 }
               }
@@ -183,10 +198,29 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                    "id": "354a6af2-ba1f-4d9f-97a2-f26bd45dcc7f",
-                    "user_id": "80d4d80a-e3d4-40a5-b26a-8145d10f8d59",
-                    "survey_id": "dfa0dfb8-8e4e-466e-8772-1f394bb7e9ad",
-                    "created_at": "2021-02-28T15:00:12.000Z"
+                    "id": { "type":"string","example": "b09dc331-87e0-46f1-8b23-664b34f70210"},
+                    "user_id": { "type":"string","example": "11b40fa6-f08e-4ba4-af42-2bfd295cc8af"},
+                    "survey_id": { "type":"string","example": "dfa0dfb8-8e4e-466e-8772-1f394bb7e9ad"},
+                    "value": {"type":"integer", "example": "0"},
+                    "created_at": { "type":"string","example": "2021-02-28T14:59:45.000Z"},
+                    "user": {
+                      "type": "object",
+                      "example": {
+                        "id": "11b40fa6-f08e-4ba4-af42-2bfd295cc8af",
+                        "name": "Giuliano",
+                        "email": "giuliano@gmail.com",
+                        "created_at": "2021-02-26T14:15:29.000Z"
+                      }
+                    },
+                    "survey": {
+                      "type": "object",
+                      "example": {
+                        "id": "dfa0dfb8-8e4e-466e-8772-1f394bb7e9ad",
+                        "title": "Queremos ouvir sua opnião!",
+                        "description": "De 0 a 10, quanto você recomendaria a Rocketseat?",
+                        "created_at": "2021-02-26T14:15:45.000Z"
+                      }
+                    }
                 }
               }
             },
@@ -195,11 +229,7 @@
                 "schema": {
                     "type": "object",
                     "properties": {
-                        "message": "User does not exists!"
-                    },
-                    "type": "object",
-                    "properties": {
-                        "message": "Survey does not exists!"
+                        "message": {"type":"string", "example":"User does not exists!"}
                     }
                 }
               }
@@ -232,23 +262,23 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                    "id":"354a6af2-ba1f-4d9f-97a2-f26bd45dcc7f",
-                    "user_id":"80d4d80a-e3d4-40a5-b26a-8145d10f8d59",
-                    "survey_id":"dfa0dfb8-8e4e-466e-8772-1f394bb7e9ad",
-                    "value":10,
-                    "created_at":"2021-02-28T15:00:12.000Z"
+                    "id": {"type":"string","example": "354a6af2-ba1f-4d9f-97a2-f26bd45dcc7f"},
+                    "user_id": {"type":"string","example": "80d4d80a-e3d4-40a5-b26a-8145d10f8d59"},
+                    "survey_id": {"type":"string","example": "dfa0dfb8-8e4e-466e-8772-1f394bb7e9ad"},
+                    "value": {"type":"integer","example": "10"},
+                    "created_at": {"type":"string","example": "2021-02-28T15:00:12.000Z"}
                 }
               }
             },
             "400": {
-                "description": "A object with the error message.",
-                "schema": {
+              "description": "A object with the error message.",
+              "schema": {
                   "type": "object",
                   "properties": {
-                    "message":"Survey User does not exists!"
+                      "message": {"type":"string", "example":"User does not exists!"}
                   }
-                }
               }
+            }
           }
         }
       },
@@ -272,11 +302,11 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                    "detractor": 1,
-                    "promoters": 3,
-                    "passive": 0,
-                    "totalAnswers": 4,
-                    "nps": 50
+                    "detractor": {"type": "number", "example":"1"},
+                    "promoters": {"type": "number", "example":"3"},
+                    "passive": {"type": "number", "example":"0"},
+                    "totalAnswers": {"type": "number", "example":"4"},
+                    "nps": {"type": "number", "example":"50"}
                 }
               }
             }
