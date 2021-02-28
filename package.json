@@ -10,6 +10,7 @@
   },
   "scripts": {
     "dev": "ts-node-dev --transpile-only --ignore-watch node_modules src/server.ts",
+    "start": "ts-node-dev --transpile-only --ignore-watch node_modules src/server.ts",
     "typeorm": "ts-node-dev node_modules/typeorm/cli.js",
     "test:coverage": "NODE_ENV=test nyc jest -i --coverage --reporter=html",
     "test": "NODE_ENV=test jest -i"
